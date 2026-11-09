@@ -1,0 +1,758 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>XV Años de Sugeidy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Marcellus&display=swap">
+<style>
+/* Layout: one narrow column like a long paper invitation. A green kraft envelope
+   with a wax seal opens the page; torn green paper bands alternate with beige
+   sections; hand-built dahlias, calla lilies and leaf sprigs overlap the edges. */
+:root{
+  --burgundy:#7b1530;
+  --burgundy-deep:#4f0b1e;
+  --burgundy-light:#a32a47;
+  --green:#58774f;
+  --band:#7b1530;
+  --green-deep:#3f5a3a;
+  --green-light:#8fab86;
+  --beige:#f5ede0;
+  --white:#fffcf7;
+  --sand:#e8d8bf;
+  --font-script:'Great Vibes','Snell Roundhand','Apple Chancery',cursive;
+  --font-body:'Marcellus','Trajan Pro','Palatino Linotype',Georgia,serif;
+  --noise:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .1 0 0 0 0 .15 0 0 0 0 .08 .55 0 0 0 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  overflow-x:clip;
+  padding-block:0 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+  background-color:var(--beige);
+  background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(255,255,255,.7),transparent 70%);
+  color:var(--burgundy-deep);
+  font-family:var(--font-body);
+  font-size:1.05rem;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+main{max-width:560px;margin:0 auto}
+h1,h2,h3,p{margin:0}
+a:focus-visible,button:focus-visible{outline:2px solid var(--burgundy);outline-offset:3px}
+
+/* ---------- shared ---------- */
+.script{font-family:var(--font-script);font-weight:400;font-size:clamp(2.7rem,11.5vw,3.5rem);line-height:1.15;color:var(--burgundy);text-wrap:balance}
+.eyebrow{display:block;font-size:.74rem;letter-spacing:.26em;text-transform:uppercase;color:var(--green-deep)}
+.caps{font-size:.88rem;letter-spacing:.12em;line-height:1.95;text-transform:uppercase;text-wrap:balance}
+.head{display:grid;justify-items:center;gap:6px;text-align:center}
+.sec{position:relative;padding-top:76px;text-align:center}
+.rose{width:26px;height:26px;flex:none}
+.pill{
+  display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;min-height:52px;padding:.7rem 1.4rem;
+  border-radius:999px;border:1.5px solid var(--burgundy);background:var(--burgundy);color:var(--white);
+  font-family:var(--font-body);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;text-align:center;cursor:pointer;
+  transition:filter .2s;
+}
+.pill:hover{filter:brightness(1.15)}
+.pill.line{background:transparent;color:var(--burgundy)}
+.pill svg{width:18px;height:18px;flex:none}
+.stack{display:grid;gap:12px;max-width:420px;margin:28px auto 0}
+
+/* ---------- flowers ---------- */
+.flora{
+  position:absolute;pointer-events:none;z-index:4;
+  rotate:var(--tilt,0deg);transform-origin:50% 90%;
+  animation:sway 7s ease-in-out var(--sd,0s) infinite alternate;
+}
+.flora svg{display:block;width:100%;height:auto;overflow:visible}
+.flora.in-hero{animation:bloom 1.3s cubic-bezier(.2,.8,.2,1) var(--bd,.6s) both,sway 7s ease-in-out var(--sd,0s) infinite alternate}
+.flora.behind{z-index:1}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+@keyframes bloom{from{opacity:0;scale:.55}to{opacity:1;scale:1}}
+
+/* ---------- envelope hero ---------- */
+.hero{padding-top:34px}
+.env{position:relative;width:min(100%,430px);margin:0 auto;aspect-ratio:400/440;container-type:inline-size}
+.env>svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.env-back{z-index:0}
+.env-front{z-index:3;filter:drop-shadow(0 5px 6px rgba(30,5,12,.4))}
+.card{
+  position:absolute;z-index:2;left:13%;width:74%;top:5.45%;height:84%;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding-top:40px;padding-top:10cqw;
+  background:linear-gradient(180deg,#fffdf8,#f7efe3);
+  border-radius:999px 999px 6px 6px;
+  box-shadow:0 6px 18px rgba(30,20,10,.25);
+  color:var(--burgundy);
+  animation:card-up 1.5s cubic-bezier(.2,.8,.2,1) .35s both;
+}
+.card::before{content:"";position:absolute;inset:9px;inset:2.2cqw;border:1px solid var(--burgundy);border-radius:999px 999px 3px 3px;opacity:.5;pointer-events:none}
+@keyframes card-up{from{transform:translateY(30%)}to{transform:none}}
+.c-eyebrow{font-size:10px;font-size:max(9.5px,2.5cqw);letter-spacing:.4em;padding-left:.4em;text-transform:uppercase}
+.c-name{font-family:var(--font-script);font-weight:400;font-size:64px;font-size:15cqw;line-height:1.05;margin-top:.5cqw}
+.c-name span{display:inline-block;padding:0 .12em}
+.c-rose{width:22px;height:22px;margin:.5cqw 0 1.4cqw;color:var(--burgundy)}
+.c-date{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;width:62%}
+.c-date span{padding:.5em 0;text-align:center;border-block:1px solid var(--burgundy);font-size:9px;font-size:max(8.5px,2.2cqw);letter-spacing:.16em;text-transform:uppercase}
+.c-date b{padding:0 .4em;font-weight:400;font-size:30px;font-size:7.4cqw;line-height:1}
+.c-year{margin-top:1.2cqw;font-size:11px;font-size:max(10px,2.6cqw);letter-spacing:.4em;padding-left:.4em}
+
+.listen{display:grid;justify-items:center;gap:14px;margin-top:56px;text-align:center}
+.listen p{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--burgundy);max-width:26ch;text-wrap:balance}
+.vinyl{padding:0;border:0;background:none;cursor:pointer;border-radius:50%;filter:drop-shadow(0 6px 8px rgba(30,40,20,.35))}
+.vinyl svg{display:block;width:100%;height:100%}
+.vinyl.big{width:104px;height:104px}
+.vinyl.playing svg{animation:spin 5s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.vinyl.mini{
+  position:fixed;z-index:60;width:56px;height:56px;
+  right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));
+  opacity:0;pointer-events:none;scale:.8;transition:opacity .35s,scale .35s;
+}
+.vinyl.mini.show{opacity:1;pointer-events:auto;scale:1}
+
+/* ---------- torn green paper ---------- */
+.band-wrap{position:relative;margin-top:64px;filter:drop-shadow(0 3px 4px rgba(50,8,20,.3))}
+.band{
+  background-color:var(--band);
+  background-image:var(--noise),radial-gradient(ellipse 70% 50% at 15% 8%,rgba(255,255,255,.1),transparent 60%),radial-gradient(ellipse 60% 40% at 90% 95%,rgba(0,0,0,.14),transparent 70%);
+  color:var(--white);text-align:center;
+  padding:92px 0 100px;
+}
+.band-in{padding-inline:clamp(20px,7vw,44px)}
+.band .script{color:var(--white)}
+.band .eyebrow{color:#e5dcc2}
+.band .caps{color:var(--white)}
+
+/* ---------- invitation ---------- */
+.band .lead{margin:16px auto 0;max-width:34ch}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;margin-top:38px}
+.names{margin-top:8px;font-size:1.22rem;line-height:1.5}
+
+/* ---------- calendar ---------- */
+.month{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px 0;max-width:380px;margin:30px auto 0}
+.month span{position:relative;display:grid;place-items:center;aspect-ratio:1/.9;font-size:1.08rem}
+.month .dow{aspect-ratio:auto;padding-bottom:10px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--green-deep)}
+.month .on{z-index:1;color:var(--white)}
+.month .on svg{position:absolute;left:50%;top:50%;width:62px;max-width:150%;translate:-50% -50%;z-index:-1;fill:var(--burgundy);animation:beat 2.4s ease-in-out infinite}
+@keyframes beat{0%,100%{scale:1}50%{scale:1.09}}
+.when{margin-top:22px}
+
+/* ---------- places ---------- */
+.venue{margin-top:30px}
+.v-name{font-family:var(--font-script);font-size:2.3rem;line-height:1.15;color:var(--burgundy)}
+.v-sub{font-size:.9rem;letter-spacing:.14em;text-transform:uppercase}
+.maptile{
+  position:relative;display:grid;place-items:center;align-content:center;gap:10px;min-height:150px;margin-top:36px;overflow:hidden;
+  border-radius:6px;border:1px solid var(--sand);text-decoration:none;color:var(--burgundy);
+  background-color:#efe4d0;
+}
+.maptile svg.streets{position:absolute;inset:0;width:100%;height:100%}
+.maptile .pinbox{position:relative;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--white);box-shadow:0 4px 10px rgba(60,40,20,.25)}
+.maptile .pinbox svg{width:24px;height:24px}
+.maptile .cta{position:relative;padding:.35rem .9rem;border-radius:999px;background:var(--white);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;box-shadow:0 2px 6px rgba(60,40,20,.18)}
+.maptile:hover .pinbox{translate:0 -3px}
+.pinbox{transition:translate .2s}
+
+/* ---------- program ---------- */
+.timeline{list-style:none;margin:40px 0 0;padding:0;text-align:left}
+.timeline li{display:grid;grid-template-columns:5rem 22px minmax(0,1fr);column-gap:14px;padding-bottom:38px}
+.timeline li:last-child{padding-bottom:0}
+.timeline time{padding-top:2px;text-align:right;font-size:1.25rem;letter-spacing:.04em;color:#f3e9cf}
+.rail{position:relative;display:flex;justify-content:center}
+.rail::before{content:"";position:relative;z-index:1;width:14px;height:14px;margin-top:9px;border-radius:50%;background:var(--band);border:2px solid #f3e9cf}
+.timeline li:not(:last-child) .rail::after{content:"";position:absolute;left:50%;top:26px;bottom:-12px;width:1px;background:rgba(243,233,207,.6)}
+.timeline h3{font-weight:400;font-size:1.02rem;letter-spacing:.18em;text-transform:uppercase}
+.timeline .place{margin-top:2px;font-size:1.05rem}
+.timeline .note{margin-top:8px;font-size:.88rem;letter-spacing:.06em;color:#e5dcc2}
+.dress{margin-top:76px}
+.dress .big{margin-top:6px;font-size:1.05rem;letter-spacing:.34em;padding-left:.34em;text-transform:uppercase;color:#f3e9cf}
+.dress .caps{margin:14px auto 0;max-width:34ch}
+.bow{position:absolute;left:50%;bottom:-58px;translate:-50% 0;width:min(46%,210px);z-index:5;filter:drop-shadow(0 6px 6px rgba(30,5,12,.35))}
+.bow svg{display:block;width:100%;height:auto}
+
+/* ---------- envelopes, countdown, closing ---------- */
+.gift{padding-top:128px}
+.gift .ico{width:56px;height:42px;margin:0 auto 10px;color:var(--burgundy)}
+.gift .caps{margin:16px auto 0;max-width:34ch}
+.clock{display:flex;align-items:flex-start;justify-content:center;gap:clamp(4px,2vw,12px);margin-top:26px}
+.clock>div{display:grid;justify-items:center;min-width:0}
+.clock b{font-weight:400;font-size:clamp(2.3rem,12vw,3.5rem);line-height:1;color:var(--green-deep);font-variant-numeric:tabular-nums}
+.clock span{margin-top:8px;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase}
+.clock i{font-style:normal;font-size:clamp(2rem,10vw,3rem);line-height:1;color:var(--burgundy)}
+.end{padding-top:84px;display:grid;justify-items:center;gap:6px}
+.end .with{font-size:.9rem;letter-spacing:.3em;text-transform:uppercase}
+.end .sign{font-family:var(--font-script);font-size:clamp(3.4rem,15vw,5rem);line-height:1.1;color:var(--green-deep)}
+.end .sign span{display:inline-block;padding:0 .1em}
+.end .small{font-size:.74rem;letter-spacing:.3em;text-transform:uppercase;color:var(--burgundy)}
+
+/* ---------- scroll reveal (progressive; content is visible without it) ---------- */
+@supports (animation-timeline:view()){
+  .rise{animation:rise-in linear both;animation-timeline:view();animation-range:entry 0% entry 35%}
+}
+@keyframes rise-in{from{opacity:.3;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rise{animation:none!important}
+  .flora,.flora.in-hero{animation:none}
+  .card{animation:none}
+  .vinyl.playing svg,.month .on svg{animation:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="flL" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a62c4a"/><stop offset="1" stop-color="#7b1530"/></linearGradient>
+    <linearGradient id="flR" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a62c4a"/><stop offset="1" stop-color="#7b1530"/></linearGradient>
+    <linearGradient id="flB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8f2142"/><stop offset="1" stop-color="#5f0f26"/></linearGradient>
+    <radialGradient id="waxg" cx=".35" cy=".3" r=".9"><stop offset="0" stop-color="#fbf3e3"/><stop offset=".55" stop-color="#e6d3b0"/><stop offset="1" stop-color="#bda47c"/></radialGradient>
+    <linearGradient id="bowg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5a0e22"/><stop offset=".35" stop-color="#a02744"/><stop offset=".62" stop-color="#6e1428"/><stop offset="1" stop-color="#47091b"/></linearGradient>
+    <g id="rosette" fill="none" stroke="currentColor" stroke-width="1">
+      <ellipse cx="0" cy="-7.5" rx="3.6" ry="6.6"/>
+      <ellipse cx="0" cy="-7.5" rx="3.6" ry="6.6" transform="rotate(72)"/>
+      <ellipse cx="0" cy="-7.5" rx="3.6" ry="6.6" transform="rotate(144)"/>
+      <ellipse cx="0" cy="-7.5" rx="3.6" ry="6.6" transform="rotate(216)"/>
+      <ellipse cx="0" cy="-7.5" rx="3.6" ry="6.6" transform="rotate(288)"/>
+      <circle r="2" fill="currentColor"/>
+    </g>
+    <g id="vinyl-art">
+      <circle cx="50" cy="50" r="49" fill="#7b1530" stroke="#4f0b1e" stroke-width="1"/>
+      <g fill="none" stroke="#ffffff" stroke-opacity=".12" stroke-width=".6">
+        <circle cx="50" cy="50" r="44"/><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="36"/>
+        <circle cx="50" cy="50" r="32"/><circle cx="50" cy="50" r="28"/><circle cx="50" cy="50" r="24"/>
+      </g>
+      <path d="M50 50L50 2A48 48 0 0 1 84 16Z" fill="#fff" fill-opacity=".1"/>
+      <path d="M50 50L50 98A48 48 0 0 1 16 84Z" fill="#fff" fill-opacity=".1"/>
+      <circle cx="50" cy="50" r="17" fill="#eadcc2"/>
+      <circle cx="50" cy="50" r="14" fill="none" stroke="#7b1530" stroke-width=".7"/>
+      <text x="50" y="56" text-anchor="middle" font-size="16" font-family="Great Vibes,cursive" fill="#7b1530">XV</text>
+      <circle cx="50" cy="50" r="1.8" fill="#4f0b1e"/>
+    </g>
+  </defs>
+</svg>
+
+<button id="vinyl-mini" class="vinyl mini" type="button" aria-pressed="false" aria-label="Activar la música">
+  <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#vinyl-art"/></svg>
+</button>
+
+<main>
+  <header class="hero">
+    <div class="env" id="env">
+      <svg class="env-back" viewBox="0 -50 400 440" aria-hidden="true">
+        <polygon points="0,130 400,130 200,-40" fill="#8a1d3a"/>
+        <polygon points="22,128 378,128 200,-17" fill="#6a1230"/>
+        <rect y="130" width="400" height="260" fill="#4f0b1e"/>
+      </svg>
+
+      <div class="flora behind in-hero" data-kind="sprig" style="left:-5%;top:14%;width:14%;--tilt:-22deg;--bd:.9s;--sd:-2s"></div>
+      <div class="flora behind in-hero" data-kind="calla" style="right:-8%;top:10%;width:21%;--tilt:14deg;--bd:1s;--sd:-4s"></div>
+
+      <div class="card">
+        <p class="c-eyebrow">Mis XV años</p>
+        <h1 class="c-name"><span>Sugeidy</span></h1>
+        <svg class="c-rose" viewBox="-16 -16 32 32" aria-hidden="true"><use href="#rosette"/></svg>
+        <div class="c-date"><span>Sábado</span><b>19</b><span>Diciembre</span></div>
+        <p class="c-year">2026</p>
+      </div>
+
+      <svg class="env-front" viewBox="0 -50 400 440" aria-hidden="true">
+        <polygon points="0,130 206,262 0,390" fill="url(#flL)" stroke="#d9a3b1" stroke-width="1.2" stroke-linejoin="round"/>
+        <polygon points="400,130 194,262 400,390" fill="url(#flR)" stroke="#d9a3b1" stroke-width="1.2" stroke-linejoin="round"/>
+        <polygon points="0,390 200,236 400,390" fill="url(#flB)" stroke="#d9a3b1" stroke-width="1.2" stroke-linejoin="round"/>
+        <g id="seal-slot" transform="translate(200 244)"></g>
+      </svg>
+
+      <div class="flora in-hero" data-kind="dahlia" data-pal="bright" style="left:-7%;bottom:-3%;width:34%;--tilt:-8deg;--bd:1.2s;--sd:-1s"></div>
+      <div class="flora in-hero" data-kind="dahlia" data-pal="cream" style="right:-6%;bottom:-5%;width:31%;--tilt:10deg;--bd:1.4s;--sd:-3s"></div>
+      <div class="flora in-hero" data-kind="dahlia" data-pal="bright" style="right:21%;bottom:-8%;width:18%;--tilt:-6deg;--bd:1.6s;--sd:-5s"></div>
+      <div class="flora in-hero" data-kind="sprig" style="left:6%;bottom:13%;width:14%;--tilt:-32deg;--bd:1.5s;--sd:-2.5s"></div>
+    </div>
+
+    <div class="listen">
+      <p id="listen-text">Toca el disco para activar la música</p>
+      <button id="vinyl-big" class="vinyl big" type="button" aria-pressed="false" aria-label="Activar la música">
+        <svg viewBox="0 0 100 100" aria-hidden="true"><use href="#vinyl-art"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="band-wrap">
+    <div class="band torn" data-seed="7">
+      <div class="band-in rise">
+        <p class="eyebrow">Con la bendición de Dios</p>
+        <h2 class="script">Queridos invitados</h2>
+        <p class="caps lead">Hay días que se vuelven inolvidables cuando se comparten. Quiero que estés a mi lado en el día en que celebro mis quince años.</p>
+        <div class="pair">
+          <div>
+            <span class="eyebrow">Mis padres</span>
+            <p class="names">Felipe Rodríguez<br>Alicia Hernández</p>
+          </div>
+          <div>
+            <span class="eyebrow">Mis padrinos</span>
+            <p class="names">Ismael Arroyo<br>Crispina Zuccolotto</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flora" data-kind="dahlia" data-pal="deep" style="right:-5%;bottom:-46px;width:34%;--tilt:8deg;--sd:-2s"></div>
+    <div class="flora" data-kind="sprig" style="right:22%;bottom:-40px;width:11%;--tilt:24deg;--sd:-4s"></div>
+  </section>
+
+  <section class="sec rise" aria-labelledby="t-cal">
+    <div class="head">
+      <p class="eyebrow">Diciembre · 2026</p>
+      <h2 class="script" id="t-cal">Guarda la fecha</h2>
+    </div>
+    <div class="month" role="img" aria-label="Calendario de diciembre de 2026 con el día 19 marcado">
+      <span class="dow">Lun</span><span class="dow">Mar</span><span class="dow">Mié</span><span class="dow">Jue</span><span class="dow">Vie</span><span class="dow">Sáb</span><span class="dow">Dom</span>
+      <span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span class="on"><svg viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21C5 15 1 11 1 6.5 1 3.4 3.4 1 6.4 1c2.2 0 4.2 1.2 5.6 3.2C13.4 2.2 15.4 1 17.6 1 20.6 1 23 3.4 23 6.5 23 11 19 15 12 21z"/></svg>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+    </div>
+    <p class="caps when">Sábado 19 de diciembre<br>Ceremonia · 4:00 pm</p>
+  </section>
+
+  <section class="sec rise" aria-labelledby="t-where">
+    <div class="flora" data-kind="calla" style="left:2%;top:64px;width:17%;--tilt:-14deg;--sd:-3s"></div>
+    <div class="head">
+      <p class="eyebrow">Dónde será</p>
+      <h2 class="script" id="t-where">Lugares</h2>
+    </div>
+    <div class="venue">
+      <span class="eyebrow">Ceremonia · 4:00 pm</span>
+      <p class="v-name">Capilla de Juquila</p>
+      <p class="v-sub">Tomatlancillo</p>
+    </div>
+    <div class="venue">
+      <span class="eyebrow">Recepción · 5:30 pm</span>
+      <p class="v-name">Rancho Santa Juanita</p>
+    </div>
+
+    <a id="map-link" class="maptile" href="https://maps.app.goo.gl/piLnTdRsVupvBj2Z8?g_st=ic" target="_blank" rel="noopener" aria-label="Abrir la ubicación en Google Maps">
+      <svg class="streets" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M-10 118C70 96 130 132 210 100S340 54 410 78" fill="none" stroke="#f9f2e6" stroke-width="9"/>
+        <path d="M60 -10C80 40 70 90 110 160" fill="none" stroke="#f9f2e6" stroke-width="6"/>
+        <path d="M250 -10C240 40 290 90 270 160" fill="none" stroke="#f9f2e6" stroke-width="6"/>
+        <path d="M-10 36C80 30 150 50 250 28S360 12 410 24" fill="none" stroke="#ddd0b8" stroke-width="3"/>
+        <path d="M300 160C320 120 360 110 410 118" fill="none" stroke="#cfdcc4" stroke-width="14"/>
+      </svg>
+      <span class="pinbox"><svg viewBox="0 0 24 24" fill="none" stroke="#7b1530" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5c-3.6 0-6.5 2.9-6.5 6.5 0 4.8 6.5 12.5 6.5 12.5S18.5 13.8 18.5 9c0-3.6-2.9-6.5-6.5-6.5z"/><circle cx="12" cy="9" r="2.4"/></svg></span>
+      <span class="cta">Abrir en Google Maps</span>
+    </a>
+    <div class="stack" style="margin-top:14px">
+      <button id="copy-map" class="pill line" type="button">Copiar enlace de la ubicación</button>
+    </div>
+  </section>
+
+  <section class="band-wrap" style="margin-top:84px">
+    <div class="band torn" data-seed="21">
+      <div class="band-in">
+        <div class="rise">
+          <div class="head">
+            <p class="eyebrow">El día de mi fiesta</p>
+            <h2 class="script">Programa</h2>
+          </div>
+          <ol class="timeline">
+            <li>
+              <time datetime="16:00">4:00 pm</time>
+              <div class="rail"></div>
+              <div>
+                <h3>Ceremonia</h3>
+                <p class="place">Capilla de Juquila, Tomatlancillo</p>
+              </div>
+            </li>
+            <li>
+              <time datetime="17:30">5:30 pm</time>
+              <div class="rail"></div>
+              <div>
+                <h3>Recepción</h3>
+                <p class="place">Rancho Santa Juanita</p>
+                <p class="note">Durante la recepción habrá lluvia de sobres.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="dress rise">
+          <h2 class="script">Vestimenta</h2>
+          <p class="big">Libre</p>
+          <p class="caps">Ven cómodo y con tu mejor estilo. La vestimenta es libre.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flora" data-kind="dahlia" data-pal="bright" style="left:-5%;top:-34px;width:26%;--tilt:-10deg;--sd:-1.5s"></div>
+    <div class="flora" data-kind="sprig" style="left:16%;top:-30px;width:10%;--tilt:-36deg;--sd:-3.5s"></div>
+    <div class="bow" aria-hidden="true">
+      <svg viewBox="0 0 220 124">
+        <path d="M110 62C74 22 22 16 12 46C4 72 52 90 110 66Z" fill="url(#bowg)"/>
+        <path d="M110 62C146 22 198 16 208 46C216 72 168 90 110 66Z" fill="url(#bowg)"/>
+        <path d="M104 66L76 114L91 109L99 122L116 72Z" fill="url(#bowg)"/>
+        <path d="M116 66L144 114L129 109L121 122L104 72Z" fill="url(#bowg)"/>
+        <path d="M100 60C70 40 40 34 24 46M120 60C150 40 180 34 196 46" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1.4" stroke-linecap="round"/>
+        <rect x="96" y="49" width="28" height="26" rx="10" fill="url(#bowg)"/>
+        <path d="M100 56C108 52 114 52 120 56" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="sec gift rise" aria-labelledby="t-gift">
+    <svg class="ico" viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="42" height="28" rx="1.5"/><path d="M3 6l21 15L45 6"/></svg>
+    <h2 class="script" id="t-gift">Lluvia de sobres</h2>
+    <p class="caps">Tu presencia es mi mejor regalo. Si deseas tener un detalle conmigo, los sobres se entregarán durante la recepción.</p>
+  </section>
+
+  <section class="sec rise" aria-labelledby="t-count">
+    <div class="head">
+      <p class="eyebrow">Faltan para la ceremonia</p>
+      <h2 class="script" id="t-count">Cuenta regresiva</h2>
+    </div>
+    <div class="clock" role="timer" aria-live="off">
+      <div><b id="c-d">00</b><span>días</span></div><i>:</i>
+      <div><b id="c-h">00</b><span>horas</span></div><i>:</i>
+      <div><b id="c-m">00</b><span>minutos</span></div><i>:</i>
+      <div><b id="c-s">00</b><span>segundos</span></div>
+    </div>
+    <p class="caps" id="c-note" style="margin-top:18px">Sábado 19 de diciembre · 4:00 pm</p>
+    <div class="stack">
+      <a id="cal-google" class="pill" href="https://calendar.google.com/calendar/render" target="_blank" rel="noopener">Agregar a Google Calendar</a>
+      <a id="cal-outlook" class="pill line" href="https://outlook.live.com/calendar/0/deeplink/compose" target="_blank" rel="noopener">Agregar a Outlook</a>
+    </div>
+  </section>
+
+  <footer class="sec end rise">
+    <p class="with">Con cariño</p>
+    <p class="sign"><span>Sugeidy</span></p>
+    <p class="small">XV años · 19 · 12 · 2026</p>
+  </footer>
+</main>
+
+<script>
+(function(){
+  /* ---------- soft waltz, synthesized (original, no recordings) ---------- */
+  var Synth=(function(){
+    var ctx=null,bus=null,master=null,timer=null,nextBar=0,bar=0,on=false,noise=null;
+    var BEAT=60/112;
+    function mtof(m){return 440*Math.pow(2,(m-69)/12)}
+    var ROOT=[48,43,45,41,48,43,41,43];
+    var TRI=[[60,64,67],[59,62,67],[60,64,69],[60,65,69],[60,64,67],[59,62,67],[60,65,69],[59,62,67]];
+    var MEL=[
+      [[76,1],[79,1],[76,.5],[74,.5],[72,1]],
+      [[74,1],[79,1],[74,1],[71,1]],
+      [[72,1],[76,1],[81,.5],[79,.5],[76,1]],
+      [[77,1.5],[76,.5],[74,1],[72,1]],
+      [[79,1],[79,.5],[76,.5],[72,1],[76,1]],
+      [[74,1],[71,1],[74,1],[79,1]],
+      [[77,1],[81,1],[77,.5],[76,.5],[74,1]],
+      [[74,1.5],[71,.5],[67,2]]
+    ];
+    function impulse(){
+      var len=Math.floor(ctx.sampleRate*1.6),buf=ctx.createBuffer(2,len,ctx.sampleRate);
+      for(var c=0;c<2;c++){var d=buf.getChannelData(c);for(var i=0;i<len;i++){d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.8)}}
+      return buf;
+    }
+    function init(){
+      var AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC) return false;
+      ctx=new AC();
+      master=ctx.createGain();master.gain.value=0;master.connect(ctx.destination);
+      bus=ctx.createGain();bus.connect(master);
+      var conv=ctx.createConvolver();conv.buffer=impulse();
+      var wet=ctx.createGain();wet.gain.value=.3;
+      bus.connect(conv);conv.connect(wet);wet.connect(master);
+      var n=Math.floor(ctx.sampleRate*.08);noise=ctx.createBuffer(1,n,ctx.sampleRate);
+      var nd=noise.getChannelData(0);for(var i=0;i<n;i++){nd[i]=Math.random()*2-1}
+      return true;
+    }
+    function pluck(t,m,v,dec){
+      var f=mtof(m);
+      [[1,'triangle',v],[2,'sine',v*.4]].forEach(function(p){
+        var o=ctx.createOscillator(),g=ctx.createGain();
+        o.type=p[1];o.frequency.value=f*p[0];
+        g.gain.setValueAtTime(.0001,t);
+        g.gain.exponentialRampToValueAtTime(p[2],t+.01);
+        g.gain.exponentialRampToValueAtTime(.0001,t+dec);
+        o.connect(g);g.connect(bus);o.start(t);o.stop(t+dec+.1);
+      });
+    }
+    function kick(t){
+      var o=ctx.createOscillator(),g=ctx.createGain();
+      o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(42,t+.14);
+      g.gain.setValueAtTime(.32,t);g.gain.exponentialRampToValueAtTime(.0001,t+.2);
+      o.connect(g);g.connect(bus);o.start(t);o.stop(t+.25);
+    }
+    function hat(t,v){
+      var s=ctx.createBufferSource(),f=ctx.createBiquadFilter(),g=ctx.createGain();
+      s.buffer=noise;f.type='highpass';f.frequency.value=7000;
+      g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.07);
+      s.connect(f);f.connect(g);g.connect(bus);s.start(t);
+    }
+    function scheduleBar(t,i){
+      var k=i%8,tri=TRI[k],b;
+      for(b=0;b<4;b++){
+        var bt=t+b*BEAT;
+        if(b%2===0){kick(bt);pluck(bt,ROOT[k],.2,.5)}
+        hat(bt+BEAT/2,.05);
+        pluck(bt+BEAT/2,tri[0],.05,.35);pluck(bt+BEAT/2,tri[1],.04,.35);pluck(bt+BEAT/2,tri[2],.04,.35);
+      }
+      for(b=0;b<8;b++){pluck(t+b*BEAT/2,tri[[0,1,2,1,2,1,0,2][b]]+12,.035,.45)}
+      var off=0;
+      MEL[k].forEach(function(n){pluck(t+off*BEAT,n[0],.11,Math.max(.5,n[1]*BEAT*1.1));off+=n[1]});
+    }
+    function pump(){
+      while(nextBar<ctx.currentTime+1.8){scheduleBar(nextBar,bar);nextBar+=BEAT*4;bar++}
+    }
+    function fadeTo(v,s){
+      var n=ctx.currentTime;
+      master.gain.cancelScheduledValues(n);
+      master.gain.setValueAtTime(master.gain.value,n);
+      master.gain.linearRampToValueAtTime(v,n+s);
+    }
+    function start(){
+      if(!ctx&&!init()) return false;
+      if(ctx.resume) ctx.resume();
+      on=true;
+      nextBar=Math.max(nextBar,ctx.currentTime+.15);
+      pump();clearInterval(timer);timer=setInterval(pump,500);
+      fadeTo(.8,1);
+      return true;
+    }
+    function stop(){
+      on=false;clearInterval(timer);
+      if(ctx) fadeTo(0,.6);
+    }
+    document.addEventListener('visibilitychange',function(){
+      if(!ctx||!on) return;
+      if(document.hidden){ctx.suspend()}else{ctx.resume()}
+    });
+    return {
+      toggle:function(){if(on){stop()}else{start()}return on},
+      isOn:function(){return on}
+    };
+  })();
+
+  /* ---------- music: YouTube song first, built-in melody as backup ---------- */
+  var YTID='IXZ-leHBdFk';
+  var yt={p:null,ready:false,failed:false},ytOn=false;
+  (function(){
+    var holder=document.createElement('div');
+    holder.setAttribute('aria-hidden','true');
+    holder.style.cssText='position:fixed;left:-400px;bottom:0;width:200px;height:200px;overflow:hidden;pointer-events:none;opacity:0';
+    holder.innerHTML='<div id="yt-player"></div>';
+    document.body.appendChild(holder);
+    window.onYouTubeIframeAPIReady=function(){
+      try{
+        yt.p=new YT.Player('yt-player',{
+          width:200,height:200,videoId:YTID,
+          playerVars:{playsinline:1,controls:0,rel:0,loop:1,playlist:YTID,disablekb:1,fs:0},
+          events:{
+            onReady:function(){yt.ready=true},
+            onError:function(){
+              yt.failed=true;
+              if(ytOn){ytOn=false;try{Synth.toggle()}catch(e){}paintMusic()}
+            }
+          }
+        });
+      }catch(e){yt.failed=true}
+    };
+    var sc=document.createElement('script');
+    sc.src='https://www.youtube.com/iframe_api';sc.async=true;
+    sc.onerror=function(){yt.failed=true};
+    document.head.appendChild(sc);
+    setTimeout(function(){if(!yt.ready) yt.failed=true},8000);
+  })();
+  var Music={
+    toggle:function(){
+      if(ytOn){ytOn=false;try{yt.p.pauseVideo()}catch(e){}return false}
+      if(Synth.isOn()){Synth.toggle();return false}
+      if(yt.ready&&!yt.failed){
+        try{yt.p.playVideo();ytOn=true;return true}catch(e){yt.failed=true}
+      }
+      Synth.toggle();return Synth.isOn();
+    },
+    isOn:function(){return ytOn||Synth.isOn()}
+  };
+
+  var big=document.getElementById('vinyl-big'),mini=document.getElementById('vinyl-mini'),listen=document.getElementById('listen-text');
+  function paintMusic(){
+    var on=Music.isOn();
+    [big,mini].forEach(function(b){
+      b.classList.toggle('playing',on);
+      b.setAttribute('aria-pressed',String(on));
+      b.setAttribute('aria-label',on?'Pausar la música':'Activar la música');
+    });
+    listen.textContent=on?'Música activada. Toca el disco para pausar':'Toca el disco para activar la música';
+  }
+  function onVinyl(){try{Music.toggle()}catch(e){}paintMusic()}
+  big.addEventListener('click',onVinyl);
+  mini.addEventListener('click',onVinyl);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){
+      mini.classList.toggle('show',!es[0].isIntersecting);
+    },{threshold:0}).observe(big);
+  }else{mini.classList.add('show')}
+
+  /* ---------- helpers ---------- */
+  function rng(seed){
+    return function(){
+      seed|=0;seed=seed+0x6D2B79F5|0;
+      var t=Math.imul(seed^seed>>>15,1|seed);
+      t=t+Math.imul(t^t>>>7,61|t)^t;
+      return((t^t>>>14)>>>0)/4294967296;
+    };
+  }
+  function f1(n){return n.toFixed(1)}
+  function smooth(pts){
+    var n=pts.length,d='M'+f1(pts[0][0])+' '+f1(pts[0][1]);
+    for(var i=0;i<n;i++){
+      var p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];
+      d+='C'+f1(p1[0]+(p2[0]-p0[0])/6)+' '+f1(p1[1]+(p2[1]-p0[1])/6)+' '+
+        f1(p2[0]-(p3[0]-p1[0])/6)+' '+f1(p2[1]-(p3[1]-p1[1])/6)+' '+f1(p2[0])+' '+f1(p2[1]);
+    }
+    return d+'Z';
+  }
+
+  /* ---------- torn paper edges ---------- */
+  document.querySelectorAll('.torn').forEach(function(el){
+    var r=rng(parseInt(el.getAttribute('data-seed'),10)||1),steps=64,top=[],bot=[],i,x,y;
+    function dip(){return 2+r()*7+(r()<.14?r()*9:0)}
+    for(i=0;i<=steps;i++){x=(i/steps*100).toFixed(2)+'%';top.push(x+' '+f1(dip())+'px')}
+    for(i=steps;i>=0;i--){x=(i/steps*100).toFixed(2)+'%';bot.push(x+' calc(100% - '+f1(dip())+'px)')}
+    var poly='polygon('+top.concat(bot).join(',')+')';
+    el.style.webkitClipPath=poly;el.style.clipPath=poly;
+  });
+
+  /* ---------- flowers ---------- */
+  var uid=0;
+  function pet(L,w){
+    return 'M0 0C'+w+' '+(-L*.3)+' '+(w*.9)+' '+(-L*.78)+' 0 '+(-L)+'C'+(-w*.9)+' '+(-L*.78)+' '+(-w)+' '+(-L*.3)+' 0 0Z';
+  }
+  var PAL={
+    deep:[
+      {n:16,l:46,w:12,o:0,f:'#4a0a1c',s:'#2a0410'},{n:15,l:42,w:11.5,o:6,f:'#590e22',s:'#2a0410'},
+      {n:13,l:37,w:11,o:3,f:'#6a132a',s:'#2a0410'},{n:12,l:32,w:10,o:9,f:'#7b1530',s:'#2a0410'},
+      {n:10,l:26,w:9,o:0,f:'#8d1c38',s:'#2a0410'},{n:8,l:20,w:8,o:14,f:'#a02642',s:'#2a0410'},
+      {n:6,l:13,w:6.5,o:5,f:'#b3345a',s:'#2a0410'}
+    ],
+    bright:[
+      {n:16,l:46,w:12,o:0,f:'#6b1329',s:'#3a0716'},{n:15,l:42,w:11.5,o:6,f:'#7f1a35',s:'#3a0716'},
+      {n:13,l:37,w:11,o:3,f:'#932140',s:'#3a0716'},{n:12,l:32,w:10,o:9,f:'#a62a4a',s:'#3a0716'},
+      {n:10,l:26,w:9,o:0,f:'#b83a58',s:'#3a0716'},{n:8,l:20,w:8,o:14,f:'#c9506b',s:'#3a0716'},
+      {n:6,l:13,w:6.5,o:5,f:'#d86a80',s:'#3a0716'}
+    ],
+    cream:[
+      {n:16,l:46,w:12,o:0,f:'#d3b98f',s:'#6b4e2e'},{n:15,l:42,w:11.5,o:6,f:'#ddc7a2',s:'#6b4e2e'},
+      {n:13,l:37,w:11,o:3,f:'#e6d3b3',s:'#6b4e2e'},{n:12,l:32,w:10,o:9,f:'#eddcc0',s:'#6b4e2e'},
+      {n:10,l:26,w:9,o:0,f:'#f3e7d1',s:'#6b4e2e'},{n:8,l:20,w:8,o:14,f:'#f8eedd',s:'#6b4e2e'},
+      {n:6,l:13,w:6.5,o:5,f:'#fdf7ec',s:'#6b4e2e'}
+    ],
+    seal:[
+      {n:14,l:46,w:12,o:0,f:'#8a1f3a',s:'#3d0716'},{n:11,l:34,w:10.5,o:8,f:'#8a1f3a',s:'#3d0716'},
+      {n:8,l:22,w:9,o:0,f:'#8a1f3a',s:'#3d0716'},{n:5,l:12,w:6,o:12,f:'#8a1f3a',s:'#3d0716'}
+    ]
+  };
+  function dahliaG(pal){
+    var out='';
+    pal.forEach(function(r){
+      out+='<g fill="'+r.f+'" stroke="'+r.s+'" stroke-width=".55" stroke-opacity=".6">';
+      for(var i=0;i<r.n;i++){out+='<path transform="rotate('+(i*360/r.n+r.o).toFixed(1)+')" d="'+pet(r.l,r.w)+'"/>'}
+      out+='</g>';
+    });
+    return out+'<circle r="2.4" fill="#3a0716"/>';
+  }
+  function dahlia(name){
+    return '<svg viewBox="-50 -50 100 100" aria-hidden="true">'+dahliaG(PAL[name]||PAL.deep)+'</svg>';
+  }
+  function calla(){
+    var id='cg'+(uid++);
+    return '<svg viewBox="0 0 70 150" aria-hidden="true"><defs><linearGradient id="'+id+'" x1="0" y1="0" x2="1" y2="1">'+
+      '<stop offset="0" stop-color="#b43a58"/><stop offset=".55" stop-color="#7b1530"/><stop offset="1" stop-color="#4f0b1e"/></linearGradient></defs>'+
+      '<path d="M36 148C34 120 30 100 31 78" fill="none" stroke="#4b6a43" stroke-width="3.2" stroke-linecap="round"/>'+
+      '<path d="M33 80C14 70 4 46 8 24C11 8 24 2 36 4C52 6 62 24 58 44C55 62 44 74 33 80Z" fill="url(#'+id+')"/>'+
+      '<path d="M33 80C26 60 28 34 36 4" fill="none" stroke="#fff" stroke-opacity=".22" stroke-width="1"/>'+
+      '<ellipse cx="36" cy="46" rx="3.6" ry="17" fill="#e9c97f" transform="rotate(6 36 46)"/></svg>';
+  }
+  function sprig(){
+    var cols=['#3f5a3a','#4b6a43','#5c7a52','#6f8f66'],s='<svg viewBox="0 0 70 160" aria-hidden="true">'+
+      '<path d="M35 158C32 110 40 60 34 6" fill="none" stroke="#3f5a3a" stroke-width="2" stroke-linecap="round"/>';
+    for(var i=0;i<8;i++){
+      var y=146-i*17,side=i%2?1:-1,sc=1-i*.06,col=cols[i%4];
+      s+='<g transform="translate(35 '+y+') scale('+(side*sc).toFixed(2)+' '+sc.toFixed(2)+') rotate(-38)">'+
+        '<path d="M0 0C8 -5 20 -5 28 0C20 5 8 5 0 0Z" fill="'+col+'"/>'+
+        '<path d="M2 0L26 0" stroke="#fff" stroke-opacity=".25" stroke-width=".7"/></g>';
+    }
+    s+='<path transform="translate(34 6) rotate(-90)" d="M0 0C6 -4 14 -4 20 0C14 4 6 4 0 0Z" fill="#6f8f66"/></svg>';
+    return s;
+  }
+  document.querySelectorAll('.flora').forEach(function(el){
+    var k=el.getAttribute('data-kind');
+    el.innerHTML=k==='dahlia'?dahlia(el.getAttribute('data-pal')):k==='calla'?calla():sprig();
+  });
+
+  /* ---------- wax seal ---------- */
+  var slot=document.getElementById('seal-slot');
+  if(slot){
+    var r=rng(11),pts=[],i;
+    for(i=0;i<16;i++){var a=i*Math.PI*2/16,rad=30*(1+(r()-.5)*.14);pts.push([Math.cos(a)*rad,Math.sin(a)*rad])}
+    slot.innerHTML='<path d="'+smooth(pts)+'" fill="url(#waxg)"/>'+
+      '<circle r="24" fill="none" stroke="#7a5a3a" stroke-opacity=".5" stroke-width="1.2"/>'+
+      '<circle r="25.6" fill="none" stroke="#ffffff" stroke-opacity=".5" stroke-width=".8"/>'+
+      '<g transform="scale(.36)">'+dahliaG(PAL.seal)+'</g>';
+  }
+
+  /* ---------- countdown: 19 Nov 2026, 4:00 pm Mexico City (UTC-6) ---------- */
+  var target=new Date('2026-12-19T16:00:00-06:00').getTime();
+  var cd=document.getElementById('c-d'),ch=document.getElementById('c-h'),cm=document.getElementById('c-m'),cs=document.getElementById('c-s'),cn=document.getElementById('c-note');
+  function two(n){return n<10?'0'+n:String(n)}
+  function tick(){
+    var d=target-Date.now();
+    if(d<=0){
+      cd.textContent=ch.textContent=cm.textContent=cs.textContent='00';
+      cn.textContent='¡El gran día ha llegado!';
+      return false;
+    }
+    cd.textContent=two(Math.floor(d/864e5));
+    ch.textContent=two(Math.floor(d%864e5/36e5));
+    cm.textContent=two(Math.floor(d%36e5/6e4));
+    cs.textContent=two(Math.floor(d%6e4/1e3));
+    return true;
+  }
+  if(tick()){var iv=setInterval(function(){if(!tick()) clearInterval(iv)},1000)}
+
+  /* ---------- add to calendar ---------- */
+  var MAP=document.getElementById('map-link').href;
+  var q=encodeURIComponent;
+  var title='XV Años de Sugeidy';
+  var where='Capilla de Juquila, Tomatlancillo';
+  var details='Ceremonia: 4:00 pm, Capilla de Juquila, Tomatlancillo.\nRecepción: 5:30 pm, Rancho Santa Juanita.\nHabrá lluvia de sobres durante la recepción.\nUbicación: '+MAP;
+  document.getElementById('cal-google').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+q(title)+
+    '&dates=20261219T160000/20261219T220000&ctz=America/Mexico_City&details='+q(details)+'&location='+q(where);
+  document.getElementById('cal-outlook').href='https://outlook.live.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject='+q(title)+
+    '&startdt='+q('2026-12-19T16:00:00-06:00')+'&enddt='+q('2026-12-19T22:00:00-06:00')+'&body='+q(details)+'&location='+q(where);
+
+  /* ---------- copy map link ---------- */
+  var copyBtn=document.getElementById('copy-map'),copyTimer=null,copyLabel=copyBtn.textContent;
+  function copied(ok){
+    copyBtn.textContent=ok?'Enlace copiado':'No se pudo copiar';
+    clearTimeout(copyTimer);
+    copyTimer=setTimeout(function(){copyBtn.textContent=copyLabel},2200);
+  }
+  function fallbackCopy(text){
+    var ta=document.createElement('textarea');
+    ta.value=text;ta.style.cssText='position:fixed;opacity:0;top:0;left:0';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;try{ok=document.execCommand('copy')}catch(e){}
+    ta.remove();return ok;
+  }
+  copyBtn.addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(MAP).then(function(){copied(true)},function(){copied(fallbackCopy(MAP))});
+    }else{copied(fallbackCopy(MAP))}
+  });
+})();
+</script>
+</body>
+</html>
